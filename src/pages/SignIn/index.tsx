@@ -1,7 +1,11 @@
 // eslint-disable-next-line no-use-before-define
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
+import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
+import * as Yup from 'yup';
+
+import getValidationErrors from '../../utils/getValidationErrors';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -16,16 +20,34 @@ interface SignInFormData {
 }
 
 const SignIn: React.FC = () => {
-  function handleSubmit(data: SignInFormData): void {
-    console.log(data);
-  }
+  const formRef = useRef<FormHandles>(null);
+
+  const handleSubmit = useCallback(async (data: SignInFormData) => {
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required('E-mail obrigatório')
+          .email('E-mail inválido'),
+        password: Yup.string().min(6, 'Mínimo de 6 dígitos'),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      formRef.current?.setErrors({});
+    } catch (error) {
+      const errors = getValidationErrors(error);
+      formRef.current?.setErrors(errors);
+    }
+  }, []);
 
   return (
     <Container>
       <Content>
         <img alt="Gobarber" src={logoImg} />
 
-        <Form onSubmit={handleSubmit}>
+        <Form ref={formRef} onSubmit={handleSubmit}>
           <h1>Faça seu login</h1>
           <Input name="email" icon={FiMail} placeholder="E-mail" />
           <Input
