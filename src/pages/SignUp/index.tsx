@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import React, { useCallback, useRef } from 'react';
 import { FiUser, FiMail, FiLock, FiArrowLeft } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';

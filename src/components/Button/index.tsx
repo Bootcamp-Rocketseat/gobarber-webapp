@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-use-before-define
 import React, { ButtonHTMLAttributes } from 'react';
 
 import { Container } from './styles';
