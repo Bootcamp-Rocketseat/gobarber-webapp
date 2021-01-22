@@ -44,8 +44,6 @@ const ForgotPassword: React.FC = () => {
           email: data.email,
         });
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
         addToast({
           title: 'Solicitação de recupeção enviada',
           description: `O link para recuperação de senha foi enviado para o email ${data.email}`,
