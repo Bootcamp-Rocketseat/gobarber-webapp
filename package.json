@@ -17,6 +17,7 @@
     "npm-check-updates": "^9.0.4",
     "polished": "^4.0.2",
     "react": "^16.13.1",
+    "react-day-picker": "^7.4.8",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",

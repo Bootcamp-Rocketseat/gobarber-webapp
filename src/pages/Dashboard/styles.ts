@@ -143,6 +143,68 @@ export const NextAppointment = styled.div`
   }
 `;
 
+export const Section = styled.section`
+  margin-top: 48px;
+
+  > span {
+    display: block;
+    font-size: 20px;
+    line-height: 26px;
+    color: #999591;
+
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #3e3b47;
+  }
+`;
+
+export const Appointment = styled.div`
+  display: flex;
+
+  & + div {
+    margin-top: 16px;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    color: #f4ede8;
+    font-size: 16px;
+
+    svg {
+      margin-right: 12px;
+      height: 16px;
+      width: 16px;
+      color: #ff9000;
+    }
+  }
+
+  div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 26px;
+    background: #3e3b47;
+    padding: 16px 24px;
+    border-radius: 10px;
+
+    img {
+      height: 56px;
+      width: 56px;
+      border-radius: 50%;
+    }
+
+    strong {
+      margin-left: 16px;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 500;
+      color: #f4ede8;
+    }
+  }
+`;
+
 export const Calendar = styled.aside`
   width: 360px;
 `;
